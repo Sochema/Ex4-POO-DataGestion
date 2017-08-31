@@ -1,0 +1,27 @@
+{
+  "dab": [{
+      "name": "Morad",
+      "surname": "Hasta",
+      "age": 25,
+      "country": "Maroc"
+    },
+    {
+      "name": "Leila",
+      "surname": "La",
+      "age": 67,
+      "country": "Algérie"
+    },
+    {
+      "name": "Charlotte",
+      "surname": "Vista",
+      "age": 74,
+      "country": "Slovénie"
+    },
+    {
+      "name": "Kader",
+      "surname": "Baby",
+      "age": 17,
+      "country": "Tunisie"
+    }
+  ]
+}
