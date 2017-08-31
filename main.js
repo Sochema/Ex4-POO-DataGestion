@@ -1,29 +1,23 @@
-//REQUETE AJAX
-
 var tBody = document.getElementById("tbody");
-var selector = document.getElementById("selector").value;
+var selector = document.getElementById("selector");
 
-
-//EventListener Onclick pour selector
-// for (var i = 0; i < selector.length; i++) {
-//   selector[i].addEventListener("click", ..... )
-// }
-
-function loadDoc() {
+//REQUETE AJAX
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText);
-      affichage(name);
-      //trier( , ,selector)
+      affichage();
+      selector.addEventListener("change", function(){
+        trier(data.dab, selector.options[selector.selectedIndex].innerHTML)}
+    );
     }
   };
   xhttp.open("GET", "main.json", true);
   xhttp.send();
-}
 
 //RECUPERER LES PRENOMS
 function affichage() {
+  tbody.innerHTML = "";
   for (x in data.dab) {
     var ligne = document.createElement("tr");
     tBody.appendChild(ligne);
@@ -35,18 +29,18 @@ function affichage() {
   }
 }
 
-loadDoc();
-
-
-//TRIER
-
-function trier (element1, element2, htmlElement){
-
-
-
-
-
-
+function trier(table, select) {
+  table.sort(function(element1, element2) {
+    if (element1[select] > element2[select]) {
+      return 1;
+    }
+    if (element1[select] < element2[select]) {
+      return -1;
+    }
+    return 0;
+  })
+  affichage();
 }
 
-//c = selecteur
+//var test = "name";
+//objet["name"] = objet.name
